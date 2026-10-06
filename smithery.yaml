@@ -1,0 +1,30 @@
+# Smithery configuration for amanchain-mcp (https://smithery.ai)
+# Zero-spend by default: without a private key the server serves the full
+# 59-service catalog and quotes; paid calls need the optional key below.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      privateKey:
+        type: string
+        title: Wallet Private Key
+        description: Optional EVM private key for paid (x402 USDC-on-Base) calls. Omit for zero-spend quotes-only mode.
+      maxUsdPerCall:
+        type: string
+        title: Max USD per call
+        description: Client-side spend cap per call (default 0.05)
+      maxUsdPerDay:
+        type: string
+        title: Max USD per day
+        description: Client-side spend cap per day (default 1.00)
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'amanchain-mcp@latest'],
+      env: {
+        ...(config.privateKey ? { AMAN_PRIVATE_KEY: config.privateKey } : {}),
+        ...(config.maxUsdPerCall ? { AMAN_MAX_USD_PER_CALL: config.maxUsdPerCall } : {}),
+        ...(config.maxUsdPerDay ? { AMAN_MAX_USD_PER_DAY: config.maxUsdPerDay } : {})
+      }
+    })

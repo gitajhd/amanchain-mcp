@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.gitajhd/amanchain-mcp",
+  "description": "59 pay-per-call AI services as MCP tools with automatic x402 USDC-on-Base payment.",
+  "version": "1.0.1",
+  "websiteUrl": "https://github.com/gitajhd/amanchain-mcp",
+  "repository": {
+    "url": "https://github.com/gitajhd/amanchain-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "amanchain-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
