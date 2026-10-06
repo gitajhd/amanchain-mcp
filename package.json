@@ -1,0 +1,24 @@
+{
+  "name": "amanchain-mcp",
+  "version": "1.0.0",
+  "description": "AmanChain x402 MCP gateway — 59 pay-per-call AI services (crypto, audit, docs, web, AI) as MCP tools with automatic x402 USDC-on-Base payment. Works in Claude Code, Claude Desktop, Cursor and any MCP client.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "amanchain-mcp": "dist/index.js" },
+  "main": "dist/index.js",
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "bun build src/index.ts --target node --outfile dist/index.js",
+    "start": "node dist/index.js"
+  },
+  "engines": { "node": ">=18" },
+  "keywords": [
+    "mcp", "model-context-protocol", "x402", "ai-agents", "payments",
+    "usdc", "base", "crypto", "blockchain", "amanchain", "tools",
+    "claude", "cursor", "pay-per-call", "api"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "viem": "^2.57.0"
+  }
+}
